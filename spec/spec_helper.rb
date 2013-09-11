@@ -1,5 +1,5 @@
 require "rumm"
-require "vcr"
+require "vcr" unless ENV['MOCK_WITH'] == 'pacto'
 require "aruba/api"
 require "rspec-given"
 require "netrc"
