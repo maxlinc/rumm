@@ -5,8 +5,9 @@ else
 end
 
 module InteractionStub
-
+  
   extend self
+
 
   def configure
   	if is_pacto?
