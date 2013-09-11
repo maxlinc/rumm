@@ -2,6 +2,8 @@ rvm:
   - 2.0.0
   - 1.9.3
 notifications:
+  recipients:
+    - mlincoln@thoughtworks.com
 env:
   - "MOCK_WITH=pacto"
   - "MOCK_WITH=vcr"
