@@ -64,42 +64,8 @@ shared_context "netrc" do
   end
 end
 
-VCR.configure do |c|
-  c.default_cassette_options = {:record => :once}
-  c.hook_into :excon
-  #c.debug_logger = $stderr
-
-  c.cassette_library_dir = 'spec/fixtures/cassettes'
-  c.filter_sensitive_data("<rackspace-username>") do |interaction|
-    if interaction.response.body =~ /"username":"(\w+)"/ or interaction.request.body =~ /"username":"(\w+)"/
-      $1
-    else
-      ENV['RACKSPACE_USERNAME']
-    end
-  end
-  c.filter_sensitive_data("<rackspace-password>") do |interaction|
-    if interaction.response.body =~ /"password":"(.+)"/ or interaction.request.body =~ /"password":"(.+)"/
-      $1
-    else
-      ENV['RACKSPACE_PASSWORD']
-    end
-  end
-  c.filter_sensitive_data("<rackspace-api-token>") do |interaction|
-    if interaction.response.body =~ /"token":{"id":"(\w+)"/
-      $1
-    elsif token = interaction.request.headers['X-Auth-Token']
-      token.first
-    end
-  end
-  c.filter_sensitive_data("<rackspace-api-key>") do |interaction|
-    if interaction.response.body =~ /"apiKey":"(\w+)"/ or interaction.request.body =~ /"apiKey":"(\w+)"/
-      $1
-    else
-      ENV['RACKSPACE_API_KEY']
-    end
-  end
-end
-
+require "interaction_stub"
+InteractionStub.configure       
 
 require "aruba/in_process"
 require_relative "../app"
