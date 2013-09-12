@@ -18,7 +18,9 @@ module InteractionStub
 
   def use_file(file_name, &block)
   	if is_pacto?
-  		Pacto.use('rumm_contract')
+  		contract = Pacto.build_from_file("spec/fixtures/contracts/#{file_name}.json", 'https://identity.api.rackspacecloud.com')
+	        Pacto.register(file_name, contract)
+  		Pacto.use(file_name)
   		block.call
   	else
   		VCR.use_cassette(file_name) do 
@@ -32,8 +34,7 @@ module InteractionStub
   end
 
   def configure_pacto
-  	contract = Pacto.build_from_file('unsuccessful_login.json', 'https://identity.api.rackspacecloud.com')
-    Pacto.register('rumm_contract', contract)
+  	# default configuration so far
   end
 
   def configure_vcr
