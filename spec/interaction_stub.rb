@@ -5,9 +5,8 @@ else
 end
 
 module InteractionStub
-  
-  extend self
 
+  extend self
 
   def configure
   	if is_pacto?
@@ -19,7 +18,8 @@ module InteractionStub
 
   def use_file(file_name, &block)
   	if is_pacto?
-  		puts "Pacto.use(file_name)"
+  		Pacto.use('rumm_contract')
+  		block.call
   	else
   		VCR.use_cassette(file_name) do 
   			block.call
@@ -32,7 +32,8 @@ module InteractionStub
   end
 
   def configure_pacto
-  	puts "configure_pacto"
+  	contract = Pacto.build_from_file('unsuccessful_login.json', 'https://identity.api.rackspacecloud.com')
+    Pacto.register('rumm_contract', contract)
   end
 
   def configure_vcr
