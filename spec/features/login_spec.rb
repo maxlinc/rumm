@@ -1,6 +1,7 @@
 require "spec_helper"
 require "netrc"
 require 'io/console'
+require "interaction_stub"
 
 describe "logging in" do
   include_context "netrc"
@@ -47,7 +48,7 @@ describe "logging in" do
     end
     context "interactively with invalid credentials" do
       When do
-        VCR.use_cassette("authentication/unsuccessful-login") do
+        InteractionStub.use_file "authentication/unsuccessful-login" do
           will_type "nil"
           will_type "nil"
           run_interactive "rum login"
