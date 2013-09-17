@@ -1,5 +1,6 @@
 require "rumm"
 require "vcr"
+require "fog_filters"
 require "aruba/api"
 require "aruba/cucumber"
 require "netrc"
@@ -18,47 +19,11 @@ end
 VCR.configure do |c|
   c.default_cassette_options = {:record => :once}
   c.hook_into :excon
+  c.allow_http_connections_when_no_cassette = true
+  c.register_filter(FogFilters::RackspaceConfidential)
+  c.register_filter(FogFilters::BuildingServers)
 
   c.cassette_library_dir = 'features/fixtures/cassettes'
-  c.before_record do |interaction, cassette|
-    # Throw away build state - just makes server.wait_for loops really long during replay
-    begin
-      json = JSON.parse(interaction.response.body)
-      if json['server']['status'] == 'BUILD'
-        # Ignoring interaction because server is in BUILD state
-        interaction.ignore!
-      end
-    rescue
-    end
-  end
-  c.filter_sensitive_data("<rackspace-username>") do |interaction|
-    if interaction.response.body =~ /"username":"(\w+)"/ or interaction.request.body =~ /"username":"(\w+)"/
-      $1
-    else
-      ENV['RACKSPACE_USERNAME']
-    end
-  end
-  c.filter_sensitive_data("<rackspace-password>") do |interaction|
-    if interaction.response.body =~ /"password":"(.+)"/ or interaction.request.body =~ /"password":"(.+)"/
-      $1
-    else
-      ENV['RACKSPACE_PASSWORD']
-    end
-  end
-  c.filter_sensitive_data("<rackspace-api-token>") do |interaction|
-    if interaction.response.body =~ /"token":{"id":"(\w+)"/
-      $1
-    elsif token = interaction.request.headers['X-Auth-Token']
-      token.first
-    end
-  end
-  c.filter_sensitive_data("<rackspace-api-key>") do |interaction|
-    if interaction.response.body =~ /"apiKey":"(\w+)"/ or interaction.request.body =~ /"apiKey":"(\w+)"/
-      $1
-    else
-      ENV['RACKSPACE_API_KEY']
-    end
-  end
 end
 
 require "aruba/in_process"

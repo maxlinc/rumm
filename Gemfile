@@ -10,3 +10,4 @@ gem "aruba"
 gem "vcr"
 gem "popen4"
 gem "pry"
+gem "fog_filters", :git => 'git@github.com:maxlinc/fog_filters.git'
