@@ -1,9 +1,15 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:features) do |t|
+    t.cucumber_opts = "features --format pretty"
+end
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task :default => [:spec, :features]
 
 desc "build the list of names and pack it into a pstore"
 task "names:build" do

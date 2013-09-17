@@ -2,6 +2,7 @@
 Feature: Managing servers
 
   Scenario: Creating my first server
+    Given SSH is stubbed
     When I successfully run `rumm show servers`
     Then the output should contain "you don't have any servers"
     And I run `rumm show server rumm-first-server`

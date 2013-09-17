@@ -3,6 +3,8 @@ require "vcr"
 require "aruba/api"
 require "aruba/cucumber"
 require "netrc"
+require "fog"
+require "cucumber/rspec/doubles"
 $: << File.expand_path("../../app/providers", __FILE__)
 
 Before do
@@ -16,9 +18,19 @@ end
 VCR.configure do |c|
   c.default_cassette_options = {:record => :once}
   c.hook_into :excon
-  #c.debug_logger = $stderr
 
   c.cassette_library_dir = 'features/fixtures/cassettes'
+  c.before_record do |interaction, cassette|
+    # Throw away build state - just makes server.wait_for loops really long during replay
+    begin
+      json = JSON.parse(interaction.response.body)
+      if json['server']['status'] == 'BUILD'
+        # Ignoring interaction because server is in BUILD state
+        interaction.ignore!
+      end
+    rescue
+    end
+  end
   c.filter_sensitive_data("<rackspace-username>") do |interaction|
     if interaction.response.body =~ /"username":"(\w+)"/ or interaction.request.body =~ /"username":"(\w+)"/
       $1
