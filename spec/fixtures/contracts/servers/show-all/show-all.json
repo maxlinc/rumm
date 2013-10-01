@@ -1,0 +1,26 @@
+{
+    "request": {
+            "headers": {
+                "Accept": "application/json"
+            }, 
+            "method": "GET", 
+            "params": {}, 
+            "path": "/v2/833532/servers/detail"
+        },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": {
+            "required":true,
+            "type": "object",
+            "properties":{
+            		"servers": {
+            			"type":"array",
+            			"required":true
+            		}
+            	}
+        }
+    }  
+}

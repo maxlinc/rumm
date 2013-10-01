@@ -1,0 +1,499 @@
+{
+    "request": {
+            "headers": {
+                "Accept": "application/json"
+            }, 
+            "method": "POST", 
+            "params": {}, 
+            "path": "v2.0/tokens"
+        },
+    "response": {
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "status": 200,
+        "body":{
+            	"type":"object",
+            	"required":true,
+            	"properties":{
+            		"access": {
+            			"type":"object",
+            			"required":true,
+            			"properties":{
+            				"serviceCatalog": {
+            					"type":"array",
+            					"required":true,
+            					"items":[
+            						{
+            							"type":"object",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"region": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0/region",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0/tenantId",
+            													"required":true
+            												},
+            												"versionId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0/versionId",
+            													"required":true
+            												},
+            												"versionInfo": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0/versionInfo",
+            													"required":true
+            												},
+            												"versionList": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/0/endpoints/0/versionList",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/0/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/0/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/1",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/1/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/1/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/1/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"region": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/1/endpoints/0/region",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/1/endpoints/0/tenantId",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/1/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/1/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/2",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/2/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/2/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/2/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"region": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/2/endpoints/0/region",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/2/endpoints/0/tenantId",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/2/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/2/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/3",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/3/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/3/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/3/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"region": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/3/endpoints/0/region",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/3/endpoints/0/tenantId",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/3/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/3/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/4",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/4/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/4/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/4/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/4/endpoints/0/tenantId",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/4/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/4/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/5",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints/0/tenantId",
+            													"required":true
+            												},
+            												"versionId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints/0/versionId",
+            													"required":true
+            												},
+            												"versionInfo": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints/0/versionInfo",
+            													"required":true
+            												},
+            												"versionList": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/5/endpoints/0/versionList",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/5/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/5/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/6",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/6/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/6/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/6/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/6/endpoints/0/tenantId",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/6/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/6/type",
+            									"required":true
+            								}
+            							}
+            						},
+            						{
+            							"type":"object",
+            							"id": "http://jsonschema.net/access/serviceCatalog/7",
+            							"required":true,
+            							"properties":{
+            								"endpoints": {
+            									"type":"array",
+            									"id": "http://jsonschema.net/access/serviceCatalog/7/endpoints",
+            									"required":true,
+            									"items":
+            										{
+            											"type":"object",
+            											"id": "http://jsonschema.net/access/serviceCatalog/7/endpoints/0",
+            											"required":true,
+            											"properties":{
+            												"internalURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/7/endpoints/0/internalURL",
+            													"required":true
+            												},
+            												"publicURL": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/7/endpoints/0/publicURL",
+            													"required":true
+            												},
+            												"region": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/7/endpoints/0/region",
+            													"required":true
+            												},
+            												"tenantId": {
+            													"type":"string",
+            													"id": "http://jsonschema.net/access/serviceCatalog/7/endpoints/0/tenantId",
+            													"required":true
+            												}
+            											}
+            										}
+									
+
+            								},
+            								"name": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/7/name",
+            									"required":true
+            								},
+            								"type": {
+            									"type":"string",
+            									"id": "http://jsonschema.net/access/serviceCatalog/7/type",
+            									"required":true
+            								}
+            							}
+            						}
+            					]
+            				},
+            				"token": {
+            					"type":"object",
+            					"id": "http://jsonschema.net/access/token",
+            					"required":true,
+            					"properties":{
+            						"expires": {
+            							"type":"string",
+            							"id": "http://jsonschema.net/access/token/expires",
+            							"required":true
+            						},
+            						"id": {
+            							"type":"string",
+            							"id": "http://jsonschema.net/access/token/id",
+            							"required":true
+            						}
+            					}
+            				},
+            				"user": {
+            					"type":"object",
+            					"id": "http://jsonschema.net/access/user",
+            					"required":true,
+            					"properties":{
+            						"RAX-AUTH:defaultRegion": {
+            							"type":"string",
+            							"id": "http://jsonschema.net/access/user/RAX-AUTH:defaultRegion",
+            							"required":true
+            						},
+            						"id": {
+            							"type":"string",
+            							"id": "http://jsonschema.net/access/user/id",
+            							"required":true
+            						},
+            						"name": {
+            							"type":"string",
+            							"id": "http://jsonschema.net/access/user/name",
+            							"required":true
+            						},
+            						"roles": {
+            							"type":"array",
+            							"id": "http://jsonschema.net/access/user/roles",
+            							"required":true,
+            							"items":
+            								{
+            									"type":"object",
+            									"id": "http://jsonschema.net/access/user/roles/0",
+            									"required":true,
+            									"properties":{
+            										"description": {
+            											"type":"string",
+            											"id": "http://jsonschema.net/access/user/roles/0/description",
+            											"required":true
+            										},
+            										"id": {
+            											"type":"string",
+            											"id": "http://jsonschema.net/access/user/roles/0/id",
+            											"required":true
+            										},
+            										"name": {
+            											"type":"string",
+            											"id": "http://jsonschema.net/access/user/roles/0/name",
+            											"required":true
+            										}
+            									}
+            								}
+							
+
+            						}
+            					}
+            				}
+            			}
+            		}
+            	}
+            
+        }
+    }
+        
+}

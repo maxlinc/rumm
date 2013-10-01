@@ -18,9 +18,11 @@ module InteractionStub
 
   def use_file(file_name, &block)
   	if is_pacto?
-  		contract = Pacto.build_from_file("spec/fixtures/contracts/#{file_name}.json", 'https://identity.api.rackspacecloud.com')
-	        Pacto.register(file_name, contract)
-  		Pacto.use(file_name)
+      show_all_contract = Pacto.build_from_file('spec/fixtures/contracts/servers/show-all/show-all.json', 'https://ord.servers.api.rackspacecloud.com')
+      login_contract = Pacto.build_from_file('spec/fixtures/contracts/servers/show-all/successful-login.json', 'https://identity.api.rackspacecloud.com')
+      Pacto.register_contract(show_all_contract)
+  		Pacto.register_contract(login_contract)
+  		Pacto.use(:default)
   		block.call
   	else
   		VCR.use_cassette(file_name) do 
@@ -33,8 +35,16 @@ module InteractionStub
   	ENV['MOCK_WITH'] == 'pacto'
   end
 
+  def load_all(contracts_directory, host, *tags)
+    contracts = Dir["#{contracts_directory}/**.json"]
+    contracts.each do |contract_file| 
+      
+    end
+  end
+
+
   def configure_pacto
-  	# default configuration so far
+        
   end
 
   def configure_vcr

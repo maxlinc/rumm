@@ -6,7 +6,7 @@ describe "using the server api" do
     include_context "netrc"
 
     context "when I list all my servers (and I don't have any')" do
-      When {VCR.use_cassette('servers/show-all') {run "rumm show servers"}}
+      When {InteractionStub.use_file('servers/show-all') {run "rumm show servers"}}
       Then {all_stdout =~ /you don't have any servers/}
       And {last_exit_status.should eql 0}
     end
