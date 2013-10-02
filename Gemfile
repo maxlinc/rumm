@@ -10,4 +10,4 @@ gem "aruba"
 gem "vcr"
 gem "popen4"
 gem "pry"
-gem "pacto"
+gem "pacto", :git => 'git@github.com:thoughtworks/pacto.git', :branch => 'experimental'
