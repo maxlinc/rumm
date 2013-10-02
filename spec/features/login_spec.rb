@@ -10,8 +10,8 @@ describe "logging in" do
   end
   context "interactively with valid credentials" do
     When do
-      VCR.use_cassette('authentication/successful-login') do
-        if VCR.current_cassette.recording?
+      InteractionStub.use_file('authentication/successful-login') do
+        if InteractionStub.recording?
           print "\nUsername: "
           username = $stdin.gets.chomp
           print "Password: "

@@ -20,11 +20,18 @@ module InteractionStub
     if is_pacto?
       Pacto.use(file_name)
       block.call
-      Pacto.clear!
     else
       VCR.use_cassette(file_name) do 
         block.call
       end
+    end
+  end
+
+  def recording?
+    if is_pacto?
+      false
+    else
+      VCR.current_cassette.recording?
     end
   end
 
@@ -37,7 +44,8 @@ module InteractionStub
       c.strict_matchers = false
       c.contracts_path = 'spec/fixtures/contracts'
     end
-    Pacto.load_all 'authentication', 'https://identity.api.rackspacecloud.com', 'authentication/unsuccessful-login'
+    Pacto.load_all 'authentication', 'https://identity.api.rackspacecloud.com', :default
+    Pacto.load_all 'unsuccessful-authentication', 'https://identity.api.rackspacecloud.com', 'authentication/unsuccessful-login'
   end
 
   def configure_vcr
